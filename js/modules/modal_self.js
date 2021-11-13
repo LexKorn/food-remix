@@ -26,10 +26,8 @@ function modal() {
 
     document.addEventListener('click', (e) => {
         if (modalWindow.style.display === "block") {
-            if (e.target !== modalWindow) {
-                setTimeout(closeModal, 3000);
-                // closeModal();
-                console.log('Oops');
+            if (e.target == modalWindow) {
+                closeModal();
             }
         }        
     });

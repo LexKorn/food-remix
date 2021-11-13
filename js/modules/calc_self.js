@@ -46,6 +46,13 @@ function calc() {
     getStaticInfo('.calculating__choose_big', 'calculating__choose-item_active');
     getStaticInfo('#gender', 'calculating__choose-item_active');
 
+    function num(x) {
+        if (isNaN(x.value)) {
+            x.style.border = "3px solid red";
+        } else {
+            x.style.border = "none";
+        }
+    }
 
     function getDinamicInfo(selector) {
         const input = document.querySelector(`${selector}`);
@@ -54,15 +61,18 @@ function calc() {
             switch (e.target.getAttribute('id')) {
                 case 'height':
                     height = +input.value;
+                    num(input);
                     break;
                 case 'weight':
                     weight = +input.value;
+                    num(input);
                     break;
                 case 'age':
                     age = +input.value;
+                    num(input);
                     break;
-            }
-        calcTotal();
+            }        
+            calcTotal();
         });    
     }
     getDinamicInfo('#height');
