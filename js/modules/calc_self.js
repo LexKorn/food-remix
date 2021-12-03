@@ -30,18 +30,14 @@ function calc() {
                 } else {
                     sex = e.target.getAttribute('id');
                 }
-            });
-        });
 
-        elements.forEach(elem => {
-            elem.addEventListener('click', (e) => {
                 elements.forEach(elem => {
                     elem.classList.remove(`${activeClass}`);
                 });            
                 e.target.classList.add(`${activeClass}`);
                 calcTotal();
-            });        
-        });    
+            });
+        });
     }
     getStaticInfo('.calculating__choose_big', 'calculating__choose-item_active');
     getStaticInfo('#gender', 'calculating__choose-item_active');

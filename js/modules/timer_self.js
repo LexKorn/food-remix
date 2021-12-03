@@ -5,7 +5,7 @@ function timer() {
           seconds = document.querySelector('#seconds'),
           deadlineInfo =document.querySelector('.deadline');
           
-    const deadline = new Date('2021-11-20T12:00:00');
+    const deadline = new Date('2021-12-08T12:00:00');
     const timerBloks = {
         days: days,
         hours: hours,

@@ -104,6 +104,9 @@ function slider() {
 
     dots.forEach((item, i) => {        
         item.addEventListener('click', () => {        
+            dots.forEach(item => {
+                item.style.opacity = 0.5;
+            });
             activeIndex = i;            
             currentIndex();
             showSlide();

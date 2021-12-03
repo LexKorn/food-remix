@@ -34,6 +34,7 @@ function cards() {
         }
     }
 
+    /*
     const firstMenu = new MenuItem(
                 "img/tabs/vegy.jpg", 
                 'vega', 
@@ -56,19 +57,19 @@ function cards() {
     firstMenu.render();
     secondMenu.render();
     thirdMenu.render();
+    */
     
-    // axios.get('http://localhost:3000/menu')
-        // .then(function (response) {
-        //     // console.log(response);
-        //     response.data.data.forEach(data => {
+    axios.get('http://localhost:3000/menu')
+        .then(function (response) {
+            console.log(response);
+            response.data.forEach(({img, alting, title, descr, price}) => {
+                new MenuItem(img, alting, title, descr, price).render();
+            });
 
-        //     })
-
-        // })
-        // .catch(function (error) {
-        //     console.log(error);
-        // });
-
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 }
 
 cards();
