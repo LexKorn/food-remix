@@ -1,29 +1,40 @@
-function forms() {
-    const userName = document.querySelector('[name="names"]'),
-          userPhone = document.querySelector('[name="phones"]'),
-          modalForm = document.querySelector('.modalForm');
+function formas() {
+    const forms = document.querySelectorAll('form');
 
-    /*
-    modalForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        console.log('click');
+    const message = {
+        loading: 'loading...',
+        success: 'Thank you! We will sent you in near time',
+        failary: 'Ops... what is wrong...'
+    };
+
+    forms.forEach(item => {
+        postData(item);
     });
-  
-    userName.addEventListener('input', () => {
-        const inputName = userName.value;
-        console.log(inputName);
-    });
+    
+    function postData(form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    userPhone.addEventListener('input', () => {
-        const inputPhone = userPhone.value;
-        console.log(inputPhone);
-    });
-    */
+            const request = new XMLHttpRequest(),
+                  formData = new FormData(form),
+                  statusModal = document.createElement('div');
 
+            statusModal.classList.add('status-modal');
+            statusModal.textContent = message.loading;
+            form.append(statusModal);
+    
+            request.open('POST', 'server.php');
+            request.send(formData);
 
-
+            request.addEventListener('load', () => {
+                console.log(request.response);
+                statusModal.textContent = message.success;
+            });
+            
+        });
+        
+    }
 }
+formas();
 
-forms();
-
-// export default forms;
+// export default formas;
