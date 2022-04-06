@@ -1,4 +1,4 @@
-function formas() {
+function forms() {
     const forms = document.querySelectorAll('form'),
           modalDialog = document.querySelector('.modal__dialog'),
           modalWindow = document.querySelector('.modal');
@@ -29,7 +29,7 @@ function formas() {
             form.append(statusModal);
     
             request.open('POST', 'server.php');
-            request.setRequestHeader('Content-type', 'application/json');  // если отправлять "чистую" formData, то эта строка НЕ нужна;
+            // request.setRequestHeader('Content-type', 'application/json');  // если отправлять "чистую" formData, то эта строка НЕ нужна;
             // request.send(formData);
 
             let object = {},
@@ -77,6 +77,6 @@ function formas() {
         });                 
     }    
 }
-formas();
+// forms();
 
-// export default formas;
+export default forms;

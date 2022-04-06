@@ -31,7 +31,6 @@ function tabs() {
         });
     });
 }
+// tabs();
 
-tabs();
-
-// export default tabs;
+export default tabs;

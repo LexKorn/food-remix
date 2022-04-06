@@ -114,7 +114,6 @@ function slider() {
         });
     });
 }
+// slider();
 
-slider();
-
-// export default slider;
+export default slider;
